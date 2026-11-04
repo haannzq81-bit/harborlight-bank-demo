@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { balanceSeries, flowsFor, periods, totalBalance, type Period } from "./data";
-import { Compact, Money, compact, usePrivacy } from "./privacy";
+import { Compact, Money, usePrivacy } from "./privacy";
 
 export function BalanceCard() {
   const [period, setPeriod] = useState<Period>("30d");
@@ -143,7 +143,7 @@ export function BalanceCard() {
                 <tr key={d.date} className="border-t border-border/60">
                   <td className="px-6 py-1.5">{d.label}</td>
                   <td className="px-6 py-1.5 text-right">
-                    {hidden ? "$••••" : compact(d.balance) === "" ? "" : <Money value={d.balance} />}
+                    <Money value={d.balance} />
                   </td>
                 </tr>
               ))}
