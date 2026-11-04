@@ -9,7 +9,7 @@ import {
   Search,
   Send,
   Settings,
-  StepBack,
+  ArrowLeftToLine,
 } from "lucide-react";
 import { toast } from "sonner";
 import {
@@ -28,7 +28,7 @@ export const moveMoneyActions = [
   { label: "Send", icon: Send },
   { label: "Transfer", icon: ArrowLeftRight },
   { label: "Deposit", icon: Plus },
-  { label: "Request", icon: StepBack },
+  { label: "Request", icon: ArrowLeftToLine },
   { label: "Upload bill", icon: FileUp },
 ];
 
