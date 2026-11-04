@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Dashboard UI lives in `src/components/dashboard/`, with all demo figures in `data.ts` — keeps fictional data swappable in one place.
+- Money amounts render through `Money`/`Compact` in `privacy.tsx` — so the hide-balances toggle covers every figure.
