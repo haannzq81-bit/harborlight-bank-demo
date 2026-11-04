@@ -107,11 +107,11 @@ export function BalanceCard() {
               <Tooltip
                 cursor={{ stroke: "var(--color-primary)", strokeDasharray: "3 3", strokeOpacity: 0.5 }}
                 content={({ active, payload }) =>
-                  active && payload?.length ? (
+                  active && payload?.[0] ? (
                     <div className="rounded-md border border-border bg-popover px-2.5 py-1.5 text-xs shadow-pop">
                       <span className="text-muted-foreground">{payload[0].payload.label}</span>{" "}
                       <span className="font-semibold tabular">
-                        {hidden ? "$••••" : `$${Math.round(payload[0].value as number).toLocaleString("en-US")}`}
+                        {hidden ? "$••••" : `$${Math.round(Number(payload[0].value)).toLocaleString("en-US")}`}
                       </span>
                     </div>
                   ) : null

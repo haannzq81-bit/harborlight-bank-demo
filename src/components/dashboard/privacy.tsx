@@ -20,12 +20,15 @@ export function Money({
   centsClassName,
   signed = false,
   showCents = true,
+  plain = false,
 }: {
   value: number;
   className?: string;
   centsClassName?: string;
   signed?: boolean;
   showCents?: boolean;
+  /** Render cents inline instead of superscript. */
+  plain?: boolean;
 }) {
   const { hidden } = usePrivacy();
   const neg = value < 0;
@@ -42,7 +45,12 @@ export function Money({
   return (
     <span className={cn("tabular", className)}>
       {sign}${whole.format(intPart)}
-      {showCents && <sup className={cn("ml-px text-[0.6em] font-medium align-[0.55em]", centsClassName)}>.{cents}</sup>}
+      {showCents &&
+        (plain ? (
+          <>.{cents}</>
+        ) : (
+          <span className={cn("relative -top-[0.5em] text-[0.62em] leading-none", centsClassName)}>.{cents}</span>
+        ))}
     </span>
   );
 }

@@ -5,8 +5,7 @@ import { cn } from "@/lib/utils";
 import { months, type Party } from "./data";
 import { Compact, Money } from "./privacy";
 
-function PartyRow({ p, max }: { p: Party; max: number }) {
-  const pct = Math.max(4, (Math.abs(p.amount) / max) * 100);
+function PartyRow({ p }: { p: Party }) {
   return (
     <li>
       <button
@@ -17,12 +16,7 @@ function PartyRow({ p, max }: { p: Party; max: number }) {
         <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-secondary text-[10.5px] font-medium text-secondary-foreground">
           {p.initials}
         </span>
-        <span className="min-w-0 flex-1">
-          <span className="block truncate text-[13.5px]">{p.name}</span>
-          <span className="mt-1 block h-1 rounded-full bg-secondary">
-            <span className={cn("block h-1 rounded-full", p.amount > 0 ? "bg-primary/70" : "bg-negative/50")} style={{ width: `${pct}%` }} />
-          </span>
-        </span>
+        <span className="min-w-0 flex-1 truncate text-[13.5px]">{p.name}</span>
         <Money value={p.amount} className="text-[13.5px]" />
       </button>
     </li>
@@ -30,7 +24,6 @@ function PartyRow({ p, max }: { p: Party; max: number }) {
 }
 
 function FlowCard({ title, amount, parties, avg, positive, info }: { title: string; amount: number; parties: Party[]; avg: number; positive: boolean; info?: boolean }) {
-  const max = Math.max(...parties.map((p) => Math.abs(p.amount)));
   return (
     <section className="panel flex flex-col px-6 py-5">
       <p className="flex items-center gap-1 text-[14px]">
@@ -41,7 +34,7 @@ function FlowCard({ title, amount, parties, avg, positive, info }: { title: stri
         <p className="text-[12.5px] text-muted-foreground">{positive ? "Top sources" : "Top spend"}</p>
         <ul className="mt-1">
           {parties.map((p) => (
-            <PartyRow key={p.name} p={p} max={max} />
+            <PartyRow key={p.name} p={p} />
           ))}
         </ul>
         <button type="button" onClick={() => toast("All transactions")} className="mt-1 text-[13.5px] font-medium text-primary hover:underline">
@@ -58,7 +51,7 @@ function FlowCard({ title, amount, parties, avg, positive, info }: { title: stri
 
 export function MoneyMovement() {
   const [idx, setIdx] = useState(months.length - 1);
-  const m = months[idx];
+  const m = months[idx] ?? months[months.length - 1]!;
   return (
     <section>
       <div className="mb-4 flex items-center gap-3">

@@ -143,7 +143,7 @@ export function AppSidebar({ className }: { className?: string }) {
             <Bookmark className="mt-0.5 size-4 text-muted-foreground" strokeWidth={1.75} />
             <span className="leading-tight">
               <span className="block text-[13.5px] text-sidebar-foreground">Operating</span>
-              <Money value={1284512.4} className="text-xs text-muted-foreground" centsClassName="text-[1em] align-baseline ml-0 font-normal" />
+              <Money value={1284512.4} plain className="block text-xs text-muted-foreground" />
             </span>
           </button>
           <NavItem label="Credit Card" icon={Bookmark} />

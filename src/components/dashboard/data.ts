@@ -67,10 +67,10 @@ export function balanceSeries(days: number): BalancePoint[] {
     raw.push(value);
   }
   // Pin last point to the current total.
-  const offset = totalBalance - raw[raw.length - 1];
+  const offset = totalBalance - (raw[raw.length - 1] ?? totalBalance);
   for (let i = 0; i < n; i++) {
     const d = new Date(TODAY.getTime() - (n - 1 - i) * 86400000);
-    const adj = raw[i] + offset * (i / (n - 1));
+    const adj = (raw[i] ?? 0) + offset * (i / (n - 1));
     points.push({ date: d.toISOString(), label: fmtShort.format(d), balance: Math.round(adj * 100) / 100 });
   }
   return points;
