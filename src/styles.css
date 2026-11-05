@@ -41,6 +41,7 @@
   --color-positive: var(--positive);
   --color-negative: var(--negative);
   --color-warning: var(--warning);
+  --color-warning-strong: var(--warning-strong);
   --color-info: var(--info);
   --color-banner: var(--banner);
   --color-banner-foreground: var(--banner-foreground);
@@ -89,6 +90,7 @@
   --positive: oklch(0.52 0.12 155);
   --negative: oklch(0.56 0.18 25);
   --warning: oklch(0.76 0.15 70);
+  --warning-strong: oklch(0.56 0.15 50);
   --info: oklch(0.55 0.17 258);
   --banner: oklch(0.27 0.042 166);
   --banner-foreground: oklch(0.97 0.008 150);

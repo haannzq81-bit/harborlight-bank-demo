@@ -163,21 +163,32 @@ export type Txn = {
   status?: "Failed" | "Pending";
   mine?: boolean;
   category: "opex" | "transfer" | "revenue" | "card";
+  /** Accounting category shown on the Transactions page. */
+  tag?: string;
+  receipt?: boolean;
 };
 
 export const transactions: Txn[] = [
-  { date: "Nov 4", party: "Westbrook Capital Partners", initials: "WC", amount: 128500, account: "Operating", method: "Incoming wire", category: "revenue" },
+  { date: "Nov 4", party: "Westbrook Capital Partners", initials: "WC", amount: 128500, account: "Operating", method: "Incoming wire", category: "revenue", tag: "Revenue" },
   { date: "Nov 4", party: "To Payroll", initials: "→", amount: -55810.16, account: "Operating", method: "Transfer", category: "transfer" },
   { date: "Nov 4", party: "From Operating", initials: "←", amount: 55810.16, account: "Payroll", method: "Transfer", category: "transfer" },
-  { date: "Nov 4", party: "Oakline Working Capital", initials: "OW", amount: -2200, account: "Operating", method: "Loan payment", category: "opex" },
+  { date: "Nov 4", party: "Oakline Working Capital", initials: "OW", amount: -2200, account: "Operating", method: "Loan payment", category: "opex", tag: "Loan Payments" },
   { date: "Nov 4", party: "Payment from Meridian Health", initials: "MH", amount: 419, account: "Reserve", method: "Invoice payment", status: "Failed", category: "revenue" },
-  { date: "Nov 3", party: "Amazon Web Services", initials: "AW", amount: -12853.4, account: "Operating", method: "Anthony R. ••6112", mine: true, category: "card" },
-  { date: "Nov 3", party: "Blue Bottle Coffee", initials: "BB", amount: -63.53, account: "Credit Card", method: "Maya L. ••0332", category: "card" },
-  { date: "Nov 3", party: "Linear", initials: "LI", amount: -3916, account: "Credit Card", method: "Anthony R. ••6112", mine: true, category: "opex" },
-  { date: "Nov 2", party: "Office Depot", initials: "OD", amount: -2245.54, account: "Operating", method: "Jordan K. ••9914", status: "Pending", category: "opex" },
-  { date: "Nov 2", party: "Stripe payouts", initials: "SP", amount: 81.23, account: "Operating", method: "ACH", category: "revenue" },
-  { date: "Nov 1", party: "Treasury interest", initials: "OT", amount: 3106.42, account: "Treasury", method: "Interest", category: "revenue" },
-  { date: "Nov 1", party: "Gusto Payroll", initials: "GP", amount: -55810.16, account: "Payroll", method: "ACH debit", category: "opex" },
+  { date: "Nov 3", party: "Amazon Web Services", initials: "AW", amount: -12853.4, account: "Operating", method: "Anthony R. ••6112", mine: true, category: "card", tag: "Software", receipt: true },
+  { date: "Nov 3", party: "Blue Bottle Coffee", initials: "BB", amount: -63.53, account: "Credit Card", method: "Maya L. ••0332", category: "card", tag: "Business Client Meals" },
+  { date: "Nov 3", party: "Linear", initials: "LI", amount: -3916, account: "Credit Card", method: "Anthony R. ••6112", mine: true, category: "opex", tag: "Software", receipt: true },
+  { date: "Nov 2", party: "Office Depot", initials: "OD", amount: -2245.54, account: "Operating", method: "Jordan K. ••9914", status: "Pending", category: "opex", tag: "Office Supplies" },
+  { date: "Nov 2", party: "Stripe payouts", initials: "SP", amount: 81.23, account: "Operating", method: "ACH", category: "revenue", tag: "Revenue" },
+  { date: "Nov 1", party: "Treasury interest", initials: "OT", amount: 3106.42, account: "Treasury", method: "Interest", category: "revenue", tag: "Interest Income" },
+  { date: "Nov 1", party: "Gusto Payroll", initials: "GP", amount: -55810.16, account: "Payroll", method: "ACH debit", category: "opex", tag: "Payroll" },
+  { date: "Nov 1", party: "Delta Air Lines", initials: "DL", amount: -1284.6, account: "Credit Card", method: "Priya S. ••4471", category: "card", tag: "Travel" },
+  { date: "Oct 31", party: "Marriott Houston Galleria", initials: "MA", amount: -912.44, account: "Credit Card", method: "Priya S. ••4471", category: "card", tag: "Travel - Accommodation" },
+  { date: "Oct 31", party: "Harlan Logistics", initials: "HL", amount: 42150, account: "Operating", method: "ACH", category: "revenue", tag: "Revenue" },
+  { date: "Oct 30", party: "Cooley LLP", initials: "CL", amount: -32000, account: "Operating", method: "Domestic wire", category: "opex", tag: "Legal" },
+  { date: "Oct 30", party: "Slack", initials: "SL", amount: -1450, account: "Credit Card", method: "Anthony R. ••6112", mine: true, category: "card", tag: "Software", receipt: true },
+  { date: "Oct 29", party: "WeWork", initials: "WW", amount: -24500, account: "Operating", method: "ACH debit", category: "opex", tag: "Rent" },
+  { date: "Oct 29", party: "Check deposit #1042", initials: "CD", amount: 1000, account: "Reserve", method: "Check deposit", status: "Pending", category: "revenue" },
+  { date: "Oct 28", party: "Figma", initials: "FI", amount: -540, account: "Credit Card", method: "Maya L. ••0332", category: "card", tag: "Software" },
 ];
 
 export const txnTabs = [
