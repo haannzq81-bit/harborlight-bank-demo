@@ -1,6 +1,26 @@
 import { cn } from "@/lib/utils";
 
-/** Post Oak Group leaf mark in a rounded square. */
+/** Post Oak leaf: rounded leaf with a chevron vein and short stem. */
+function Leaf({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden>
+      <path
+        fill="currentColor"
+        d="M15.9 3.2c-2.6-.9-5.9.2-7.9 2.6-2.3 2.8-2.6 6.8-.9 9.6l-1.6 4.1a.9.9 0 1 0 1.7.7l1.5-3.9c2.8 1.6 6.6 1.1 9-1.4 2.6-2.7 3-6.8 1.2-9.6-.7-1-1.7-1.7-3-2.1Z"
+      />
+      <path
+        d="m9.7 11.9 2.6-2.5 2.3 2.8"
+        fill="none"
+        stroke="var(--color-primary)"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+/** Post Oak Group mark: white leaf in a green rounded square. */
 export function BrandMark({ className }: { className?: string }) {
   return (
     <span
@@ -10,9 +30,27 @@ export function BrandMark({ className }: { className?: string }) {
       )}
       aria-hidden
     >
-      <svg viewBox="0 0 24 24" className="size-[58%]" fill="currentColor">
-        <path d="M12.6 2.4c-.3-.3-.9-.3-1.2 0C8.6 5.1 6 8.6 6 12.4c0 3 1.9 5.5 4.6 6.3V21a1 1 0 0 0 2 0v-2.3c2.7-.8 4.4-3.3 4.4-6.3 0-3.8-1.6-7.3-4.4-10Zm0 14.2v-4.1l2-2a.8.8 0 1 0-1.2-1.1l-.8.8V7.6a.8.8 0 0 0-1.6 0v4.6l-.9-.9a.8.8 0 1 0-1.1 1.2l2 2v2.1c-1.5-.7-2.5-2.3-2.5-4.2 0-2.7 1.6-5.3 3.4-7.4 1.9 2.1 3.2 4.7 3.2 7.4 0 1.9-1 3.5-2.5 4.2Z" />
-      </svg>
+      <Leaf className="size-[64%]" />
+    </span>
+  );
+}
+
+/** Full Post Oak Group logo: mark + stacked wordmark. */
+export function PostOakLogo({ className, compact = false }: { className?: string; compact?: boolean }) {
+  return (
+    <span className={cn("inline-flex items-center gap-2.5", className)} aria-label="Post Oak Group">
+      <BrandMark className={compact ? "size-7 rounded-md" : "size-9"} />
+      <span className="leading-none">
+        <span className={cn("block font-bold tracking-[0.04em] text-primary", compact ? "text-[13px]" : "text-[15px]")}>POST OAK</span>
+        <span
+          className={cn(
+            "mt-[3px] block font-semibold tracking-[0.32em] text-muted-foreground",
+            compact ? "text-[9.5px]" : "text-[11px]",
+          )}
+        >
+          GROUP
+        </span>
+      </span>
     </span>
   );
 }
@@ -27,8 +65,11 @@ export function AccountGlyph({ className }: { className?: string }) {
       )}
       aria-hidden
     >
-      <svg viewBox="0 0 24 24" className="size-3.5" fill="currentColor">
-        <path d="M12.6 2.4c-.3-.3-.9-.3-1.2 0C8.6 5.1 6 8.6 6 12.4c0 3 1.9 5.5 4.6 6.3V21a1 1 0 0 0 2 0v-2.3c2.7-.8 4.4-3.3 4.4-6.3 0-3.8-1.6-7.3-4.4-10Z" />
+      <svg viewBox="0 0 24 24" className="size-3.5" aria-hidden>
+        <path
+          fill="currentColor"
+          d="M15.9 3.2c-2.6-.9-5.9.2-7.9 2.6-2.3 2.8-2.6 6.8-.9 9.6l-1.6 4.1a.9.9 0 1 0 1.7.7l1.5-3.9c2.8 1.6 6.6 1.1 9-1.4 2.6-2.7 3-6.8 1.2-9.6-.7-1-1.7-1.7-3-2.1Z"
+        />
       </svg>
     </span>
   );
