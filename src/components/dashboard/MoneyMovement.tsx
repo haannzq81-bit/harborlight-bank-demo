@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Info } from "lucide-react";
 import { toast } from "sonner";
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { months, type Party } from "./data";
 import { Compact, Money } from "./privacy";
@@ -37,9 +38,7 @@ function FlowCard({ title, amount, parties, avg, positive, info }: { title: stri
             <PartyRow key={p.name} p={p} />
           ))}
         </ul>
-        <button type="button" onClick={() => toast("All transactions")} className="mt-1 text-[13.5px] font-medium text-primary hover:underline">
-          View all
-        </button>
+        <Link to="/transactions" className="mt-1 text-[13.5px] font-medium text-primary hover:underline">View all</Link>
       </div>
       <div className="mt-4 flex items-center justify-between border-t border-border pt-4 text-[13px]">
         <span className="text-muted-foreground">Last 3 months average</span>

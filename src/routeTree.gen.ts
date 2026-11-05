@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CommandRouteImport } from './routes/command'
+import { Route as TasksRouteImport } from './routes/tasks'
+import { Route as AccountsIndexRouteImport } from './routes/accounts.index'
+import { Route as AccountsFinancingRouteImport } from './routes/accounts.financing'
+import { Route as AccountsTreasuryRouteImport } from './routes/accounts.treasury'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommandRoute = CommandRouteImport.update({
+  id: '/command',
+  path: '/command',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TasksRoute = TasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountsIndexRoute = AccountsIndexRouteImport.update({
+  id: '/accounts/',
+  path: '/accounts/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountsFinancingRoute = AccountsFinancingRouteImport.update({
+  id: '/accounts/financing',
+  path: '/accounts/financing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountsTreasuryRoute = AccountsTreasuryRouteImport.update({
+  id: '/accounts/treasury',
+  path: '/accounts/treasury',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/command': typeof CommandRoute
+  '/tasks': typeof TasksRoute
+  '/accounts/financing': typeof AccountsFinancingRoute
+  '/accounts/treasury': typeof AccountsTreasuryRoute
+  '/accounts/': typeof AccountsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/command': typeof CommandRoute
+  '/tasks': typeof TasksRoute
+  '/accounts/financing': typeof AccountsFinancingRoute
+  '/accounts/treasury': typeof AccountsTreasuryRoute
+  '/accounts': typeof AccountsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/command': typeof CommandRoute
+  '/tasks': typeof TasksRoute
+  '/accounts/financing': typeof AccountsFinancingRoute
+  '/accounts/treasury': typeof AccountsTreasuryRoute
+  '/accounts/': typeof AccountsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/command'
+    | '/tasks'
+    | '/accounts/financing'
+    | '/accounts/treasury'
+    | '/accounts/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/command'
+    | '/tasks'
+    | '/accounts/financing'
+    | '/accounts/treasury'
+    | '/accounts'
+  id:
+    | '__root__'
+    | '/'
+    | '/command'
+    | '/tasks'
+    | '/accounts/financing'
+    | '/accounts/treasury'
+    | '/accounts/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CommandRoute: typeof CommandRoute
+  TasksRoute: typeof TasksRoute
+  AccountsFinancingRoute: typeof AccountsFinancingRoute
+  AccountsTreasuryRoute: typeof AccountsTreasuryRoute
+  AccountsIndexRoute: typeof AccountsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/command': {
+      id: '/command'
+      path: '/command'
+      fullPath: '/command'
+      preLoaderRoute: typeof CommandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tasks': {
+      id: '/tasks'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof TasksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accounts/': {
+      id: '/accounts/'
+      path: '/accounts'
+      fullPath: '/accounts/'
+      preLoaderRoute: typeof AccountsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accounts/financing': {
+      id: '/accounts/financing'
+      path: '/accounts/financing'
+      fullPath: '/accounts/financing'
+      preLoaderRoute: typeof AccountsFinancingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accounts/treasury': {
+      id: '/accounts/treasury'
+      path: '/accounts/treasury'
+      fullPath: '/accounts/treasury'
+      preLoaderRoute: typeof AccountsTreasuryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CommandRoute: CommandRoute,
+  TasksRoute: TasksRoute,
+  AccountsFinancingRoute: AccountsFinancingRoute,
+  AccountsTreasuryRoute: AccountsTreasuryRoute,
+  AccountsIndexRoute: AccountsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

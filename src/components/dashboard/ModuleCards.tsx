@@ -1,12 +1,13 @@
 import { ChevronRight, CreditCard, RefreshCw, Upload } from "lucide-react";
 import { toast } from "sonner";
+import { Link } from "@tanstack/react-router";
 import { CircleIconButton, ModuleMenu } from "./AccountsCard";
 import { Money, usePrivacy } from "./privacy";
 
-function Header({ title, action, menu }: { title: string; action: React.ReactNode; menu: string[] }) {
+function Header({ title, to, action, menu }: { title: string; to: string; action: React.ReactNode; menu: string[] }) {
   return (
     <div className="flex items-center justify-between">
-      <h3 className="text-[14px] text-foreground">{title}</h3>
+      <Link to={to} className="text-[14px] text-foreground hover:underline">{title}</Link>
       <div className="flex items-center gap-0.5">
         <span className="rounded-full bg-secondary">{action}</span>
         <ModuleMenu items={menu} />
@@ -24,11 +25,11 @@ function Stat({ label, value }: { label: string; value: React.ReactNode }) {
   );
 }
 
-function ViewLink({ onClick }: { onClick: () => void }) {
+function ViewLink({ to }: { to: string }) {
   return (
-    <button type="button" onClick={onClick} className="inline-flex items-center gap-0.5 text-[13.5px] font-medium text-primary hover:underline">
+    <Link to={to} className="inline-flex items-center gap-0.5 text-[13.5px] font-medium text-primary hover:underline">
       View <ChevronRight className="size-3.5" />
-    </button>
+    </Link>
   );
 }
 
@@ -37,6 +38,7 @@ export function CreditCardModule() {
     <section className="panel flex flex-col px-6 py-5">
       <Header
         title="Credit Card"
+        to="/cards/credit-card"
         action={
           <CircleIconButton label="Create a card" onClick={() => toast("Create a card")}>
             <CreditCard className="size-4" />
@@ -85,6 +87,7 @@ export function BillPayModule() {
     <section className="panel flex flex-col px-6 py-5">
       <Header
         title="Bill Pay"
+        to="/payments/bill-pay"
         action={
           <CircleIconButton label="Upload bill" onClick={() => toast("Upload bill")}>
             <Upload className="size-4" />
@@ -99,7 +102,7 @@ export function BillPayModule() {
       </div>
       <div className="mt-auto flex items-end justify-between pt-4">
         <Stat label="Inbox" value={`3 items · ${hidden ? "$••••" : "$10K"}`} />
-        <ViewLink onClick={() => toast("Bill Pay inbox")} />
+        <ViewLink to="/payments/bill-pay" />
       </div>
     </section>
   );
@@ -111,6 +114,7 @@ export function InvoicingModule() {
     <section className="panel flex flex-col px-6 py-5">
       <Header
         title="Invoicing"
+        to="/invoicing"
         action={
           <CircleIconButton label="Request money" onClick={() => toast("Request money")}>
             <span className="text-base leading-none">+</span>
@@ -124,7 +128,7 @@ export function InvoicingModule() {
       </div>
       <div className="mt-auto flex items-end justify-between pt-4">
         <Stat label="Open" value={`12 items · ${hidden ? "$••••" : "$12.3K"}`} />
-        <ViewLink onClick={() => toast("Invoices")} />
+        <ViewLink to="/invoicing" />
       </div>
     </section>
   );
