@@ -10,20 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountingRouteImport } from './routes/accounting'
+import { Route as BooksRouteImport } from './routes/books'
 import { Route as CommandRouteImport } from './routes/command'
+import { Route as PayrollRouteImport } from './routes/payroll'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as TasksRouteImport } from './routes/tasks'
 import { Route as AccountsIndexRouteImport } from './routes/accounts.index'
 import { Route as AccountsFinancingRouteImport } from './routes/accounts.financing'
 import { Route as AccountsTreasuryRouteImport } from './routes/accounts.treasury'
+import { Route as CardsIndexRouteImport } from './routes/cards.index'
+import { Route as CardsCreditCardRouteImport } from './routes/cards.credit-card'
+import { Route as InvoicingIndexRouteImport } from './routes/invoicing.index'
+import { Route as InvoicingCatalogRouteImport } from './routes/invoicing.catalog'
+import { Route as InvoicingCustomersRouteImport } from './routes/invoicing.customers'
+import { Route as InvoicingRecurringRouteImport } from './routes/invoicing.recurring'
+import { Route as PaymentsIndexRouteImport } from './routes/payments.index'
+import { Route as PaymentsAchAuthorizationsRouteImport } from './routes/payments.ach-authorizations'
+import { Route as PaymentsBillPayRouteImport } from './routes/payments.bill-pay'
+import { Route as PaymentsCheckbooksRouteImport } from './routes/payments.checkbooks'
+import { Route as PaymentsRecipientsRouteImport } from './routes/payments.recipients'
+import { Route as PaymentsTaxesRouteImport } from './routes/payments.taxes'
+import { Route as PaymentsWireDrawdownsRouteImport } from './routes/payments.wire-drawdowns'
+import { Route as TeamSpendIndexRouteImport } from './routes/team-spend.index'
+import { Route as TeamSpendBudgetsRouteImport } from './routes/team-spend.budgets'
+import { Route as TeamSpendPoliciesRouteImport } from './routes/team-spend.policies'
+import { Route as TeamSpendReimbursementsRouteImport } from './routes/team-spend.reimbursements'
+import { Route as TransactionsIndexRouteImport } from './routes/transactions.index'
+import { Route as TransactionsInsightsRouteImport } from './routes/transactions.insights'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountingRoute = AccountingRouteImport.update({
+  id: '/accounting',
+  path: '/accounting',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BooksRoute = BooksRouteImport.update({
+  id: '/books',
+  path: '/books',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CommandRoute = CommandRouteImport.update({
   id: '/command',
   path: '/command',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PayrollRoute = PayrollRouteImport.update({
+  id: '/payroll',
+  path: '/payroll',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TasksRoute = TasksRouteImport.update({
@@ -46,66 +89,323 @@ const AccountsTreasuryRoute = AccountsTreasuryRouteImport.update({
   path: '/accounts/treasury',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CardsIndexRoute = CardsIndexRouteImport.update({
+  id: '/cards/',
+  path: '/cards/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CardsCreditCardRoute = CardsCreditCardRouteImport.update({
+  id: '/cards/credit-card',
+  path: '/cards/credit-card',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicingIndexRoute = InvoicingIndexRouteImport.update({
+  id: '/invoicing/',
+  path: '/invoicing/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicingCatalogRoute = InvoicingCatalogRouteImport.update({
+  id: '/invoicing/catalog',
+  path: '/invoicing/catalog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicingCustomersRoute = InvoicingCustomersRouteImport.update({
+  id: '/invoicing/customers',
+  path: '/invoicing/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvoicingRecurringRoute = InvoicingRecurringRouteImport.update({
+  id: '/invoicing/recurring',
+  path: '/invoicing/recurring',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsIndexRoute = PaymentsIndexRouteImport.update({
+  id: '/payments/',
+  path: '/payments/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsAchAuthorizationsRoute =
+  PaymentsAchAuthorizationsRouteImport.update({
+    id: '/payments/ach-authorizations',
+    path: '/payments/ach-authorizations',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PaymentsBillPayRoute = PaymentsBillPayRouteImport.update({
+  id: '/payments/bill-pay',
+  path: '/payments/bill-pay',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsCheckbooksRoute = PaymentsCheckbooksRouteImport.update({
+  id: '/payments/checkbooks',
+  path: '/payments/checkbooks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsRecipientsRoute = PaymentsRecipientsRouteImport.update({
+  id: '/payments/recipients',
+  path: '/payments/recipients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsTaxesRoute = PaymentsTaxesRouteImport.update({
+  id: '/payments/taxes',
+  path: '/payments/taxes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsWireDrawdownsRoute = PaymentsWireDrawdownsRouteImport.update({
+  id: '/payments/wire-drawdowns',
+  path: '/payments/wire-drawdowns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamSpendIndexRoute = TeamSpendIndexRouteImport.update({
+  id: '/team-spend/',
+  path: '/team-spend/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamSpendBudgetsRoute = TeamSpendBudgetsRouteImport.update({
+  id: '/team-spend/budgets',
+  path: '/team-spend/budgets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamSpendPoliciesRoute = TeamSpendPoliciesRouteImport.update({
+  id: '/team-spend/policies',
+  path: '/team-spend/policies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamSpendReimbursementsRoute = TeamSpendReimbursementsRouteImport.update({
+  id: '/team-spend/reimbursements',
+  path: '/team-spend/reimbursements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransactionsIndexRoute = TransactionsIndexRouteImport.update({
+  id: '/transactions/',
+  path: '/transactions/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransactionsInsightsRoute = TransactionsInsightsRouteImport.update({
+  id: '/transactions/insights',
+  path: '/transactions/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accounting': typeof AccountingRoute
+  '/books': typeof BooksRoute
   '/command': typeof CommandRoute
+  '/payroll': typeof PayrollRoute
+  '/settings': typeof SettingsRoute
   '/tasks': typeof TasksRoute
   '/accounts/financing': typeof AccountsFinancingRoute
   '/accounts/treasury': typeof AccountsTreasuryRoute
+  '/cards/credit-card': typeof CardsCreditCardRoute
+  '/invoicing/catalog': typeof InvoicingCatalogRoute
+  '/invoicing/customers': typeof InvoicingCustomersRoute
+  '/invoicing/recurring': typeof InvoicingRecurringRoute
+  '/payments/ach-authorizations': typeof PaymentsAchAuthorizationsRoute
+  '/payments/bill-pay': typeof PaymentsBillPayRoute
+  '/payments/checkbooks': typeof PaymentsCheckbooksRoute
+  '/payments/recipients': typeof PaymentsRecipientsRoute
+  '/payments/taxes': typeof PaymentsTaxesRoute
+  '/payments/wire-drawdowns': typeof PaymentsWireDrawdownsRoute
+  '/team-spend/budgets': typeof TeamSpendBudgetsRoute
+  '/team-spend/policies': typeof TeamSpendPoliciesRoute
+  '/team-spend/reimbursements': typeof TeamSpendReimbursementsRoute
+  '/transactions/insights': typeof TransactionsInsightsRoute
   '/accounts/': typeof AccountsIndexRoute
+  '/cards/': typeof CardsIndexRoute
+  '/invoicing/': typeof InvoicingIndexRoute
+  '/payments/': typeof PaymentsIndexRoute
+  '/team-spend/': typeof TeamSpendIndexRoute
+  '/transactions/': typeof TransactionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accounting': typeof AccountingRoute
+  '/books': typeof BooksRoute
   '/command': typeof CommandRoute
+  '/payroll': typeof PayrollRoute
+  '/settings': typeof SettingsRoute
   '/tasks': typeof TasksRoute
   '/accounts/financing': typeof AccountsFinancingRoute
   '/accounts/treasury': typeof AccountsTreasuryRoute
+  '/cards/credit-card': typeof CardsCreditCardRoute
+  '/invoicing/catalog': typeof InvoicingCatalogRoute
+  '/invoicing/customers': typeof InvoicingCustomersRoute
+  '/invoicing/recurring': typeof InvoicingRecurringRoute
+  '/payments/ach-authorizations': typeof PaymentsAchAuthorizationsRoute
+  '/payments/bill-pay': typeof PaymentsBillPayRoute
+  '/payments/checkbooks': typeof PaymentsCheckbooksRoute
+  '/payments/recipients': typeof PaymentsRecipientsRoute
+  '/payments/taxes': typeof PaymentsTaxesRoute
+  '/payments/wire-drawdowns': typeof PaymentsWireDrawdownsRoute
+  '/team-spend/budgets': typeof TeamSpendBudgetsRoute
+  '/team-spend/policies': typeof TeamSpendPoliciesRoute
+  '/team-spend/reimbursements': typeof TeamSpendReimbursementsRoute
+  '/transactions/insights': typeof TransactionsInsightsRoute
   '/accounts': typeof AccountsIndexRoute
+  '/cards': typeof CardsIndexRoute
+  '/invoicing': typeof InvoicingIndexRoute
+  '/payments': typeof PaymentsIndexRoute
+  '/team-spend': typeof TeamSpendIndexRoute
+  '/transactions': typeof TransactionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accounting': typeof AccountingRoute
+  '/books': typeof BooksRoute
   '/command': typeof CommandRoute
+  '/payroll': typeof PayrollRoute
+  '/settings': typeof SettingsRoute
   '/tasks': typeof TasksRoute
   '/accounts/financing': typeof AccountsFinancingRoute
   '/accounts/treasury': typeof AccountsTreasuryRoute
+  '/cards/credit-card': typeof CardsCreditCardRoute
+  '/invoicing/catalog': typeof InvoicingCatalogRoute
+  '/invoicing/customers': typeof InvoicingCustomersRoute
+  '/invoicing/recurring': typeof InvoicingRecurringRoute
+  '/payments/ach-authorizations': typeof PaymentsAchAuthorizationsRoute
+  '/payments/bill-pay': typeof PaymentsBillPayRoute
+  '/payments/checkbooks': typeof PaymentsCheckbooksRoute
+  '/payments/recipients': typeof PaymentsRecipientsRoute
+  '/payments/taxes': typeof PaymentsTaxesRoute
+  '/payments/wire-drawdowns': typeof PaymentsWireDrawdownsRoute
+  '/team-spend/budgets': typeof TeamSpendBudgetsRoute
+  '/team-spend/policies': typeof TeamSpendPoliciesRoute
+  '/team-spend/reimbursements': typeof TeamSpendReimbursementsRoute
+  '/transactions/insights': typeof TransactionsInsightsRoute
   '/accounts/': typeof AccountsIndexRoute
+  '/cards/': typeof CardsIndexRoute
+  '/invoicing/': typeof InvoicingIndexRoute
+  '/payments/': typeof PaymentsIndexRoute
+  '/team-spend/': typeof TeamSpendIndexRoute
+  '/transactions/': typeof TransactionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/accounting'
+    | '/books'
     | '/command'
+    | '/payroll'
+    | '/settings'
     | '/tasks'
     | '/accounts/financing'
     | '/accounts/treasury'
+    | '/cards/credit-card'
+    | '/invoicing/catalog'
+    | '/invoicing/customers'
+    | '/invoicing/recurring'
+    | '/payments/ach-authorizations'
+    | '/payments/bill-pay'
+    | '/payments/checkbooks'
+    | '/payments/recipients'
+    | '/payments/taxes'
+    | '/payments/wire-drawdowns'
+    | '/team-spend/budgets'
+    | '/team-spend/policies'
+    | '/team-spend/reimbursements'
+    | '/transactions/insights'
     | '/accounts/'
+    | '/cards/'
+    | '/invoicing/'
+    | '/payments/'
+    | '/team-spend/'
+    | '/transactions/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/accounting'
+    | '/books'
     | '/command'
+    | '/payroll'
+    | '/settings'
     | '/tasks'
     | '/accounts/financing'
     | '/accounts/treasury'
+    | '/cards/credit-card'
+    | '/invoicing/catalog'
+    | '/invoicing/customers'
+    | '/invoicing/recurring'
+    | '/payments/ach-authorizations'
+    | '/payments/bill-pay'
+    | '/payments/checkbooks'
+    | '/payments/recipients'
+    | '/payments/taxes'
+    | '/payments/wire-drawdowns'
+    | '/team-spend/budgets'
+    | '/team-spend/policies'
+    | '/team-spend/reimbursements'
+    | '/transactions/insights'
     | '/accounts'
+    | '/cards'
+    | '/invoicing'
+    | '/payments'
+    | '/team-spend'
+    | '/transactions'
   id:
     | '__root__'
     | '/'
+    | '/accounting'
+    | '/books'
     | '/command'
+    | '/payroll'
+    | '/settings'
     | '/tasks'
     | '/accounts/financing'
     | '/accounts/treasury'
+    | '/cards/credit-card'
+    | '/invoicing/catalog'
+    | '/invoicing/customers'
+    | '/invoicing/recurring'
+    | '/payments/ach-authorizations'
+    | '/payments/bill-pay'
+    | '/payments/checkbooks'
+    | '/payments/recipients'
+    | '/payments/taxes'
+    | '/payments/wire-drawdowns'
+    | '/team-spend/budgets'
+    | '/team-spend/policies'
+    | '/team-spend/reimbursements'
+    | '/transactions/insights'
     | '/accounts/'
+    | '/cards/'
+    | '/invoicing/'
+    | '/payments/'
+    | '/team-spend/'
+    | '/transactions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountingRoute: typeof AccountingRoute
+  BooksRoute: typeof BooksRoute
   CommandRoute: typeof CommandRoute
+  PayrollRoute: typeof PayrollRoute
+  SettingsRoute: typeof SettingsRoute
   TasksRoute: typeof TasksRoute
   AccountsFinancingRoute: typeof AccountsFinancingRoute
   AccountsTreasuryRoute: typeof AccountsTreasuryRoute
+  CardsCreditCardRoute: typeof CardsCreditCardRoute
+  InvoicingCatalogRoute: typeof InvoicingCatalogRoute
+  InvoicingCustomersRoute: typeof InvoicingCustomersRoute
+  InvoicingRecurringRoute: typeof InvoicingRecurringRoute
+  PaymentsAchAuthorizationsRoute: typeof PaymentsAchAuthorizationsRoute
+  PaymentsBillPayRoute: typeof PaymentsBillPayRoute
+  PaymentsCheckbooksRoute: typeof PaymentsCheckbooksRoute
+  PaymentsRecipientsRoute: typeof PaymentsRecipientsRoute
+  PaymentsTaxesRoute: typeof PaymentsTaxesRoute
+  PaymentsWireDrawdownsRoute: typeof PaymentsWireDrawdownsRoute
+  TeamSpendBudgetsRoute: typeof TeamSpendBudgetsRoute
+  TeamSpendPoliciesRoute: typeof TeamSpendPoliciesRoute
+  TeamSpendReimbursementsRoute: typeof TeamSpendReimbursementsRoute
+  TransactionsInsightsRoute: typeof TransactionsInsightsRoute
   AccountsIndexRoute: typeof AccountsIndexRoute
+  CardsIndexRoute: typeof CardsIndexRoute
+  InvoicingIndexRoute: typeof InvoicingIndexRoute
+  PaymentsIndexRoute: typeof PaymentsIndexRoute
+  TeamSpendIndexRoute: typeof TeamSpendIndexRoute
+  TransactionsIndexRoute: typeof TransactionsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -117,11 +417,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accounting': {
+      id: '/accounting'
+      path: '/accounting'
+      fullPath: '/accounting'
+      preLoaderRoute: typeof AccountingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/books': {
+      id: '/books'
+      path: '/books'
+      fullPath: '/books'
+      preLoaderRoute: typeof BooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/command': {
       id: '/command'
       path: '/command'
       fullPath: '/command'
       preLoaderRoute: typeof CommandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payroll': {
+      id: '/payroll'
+      path: '/payroll'
+      fullPath: '/payroll'
+      preLoaderRoute: typeof PayrollRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tasks': {
@@ -152,16 +480,172 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountsTreasuryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cards/': {
+      id: '/cards/'
+      path: '/cards'
+      fullPath: '/cards/'
+      preLoaderRoute: typeof CardsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cards/credit-card': {
+      id: '/cards/credit-card'
+      path: '/cards/credit-card'
+      fullPath: '/cards/credit-card'
+      preLoaderRoute: typeof CardsCreditCardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoicing/': {
+      id: '/invoicing/'
+      path: '/invoicing'
+      fullPath: '/invoicing/'
+      preLoaderRoute: typeof InvoicingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoicing/catalog': {
+      id: '/invoicing/catalog'
+      path: '/invoicing/catalog'
+      fullPath: '/invoicing/catalog'
+      preLoaderRoute: typeof InvoicingCatalogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoicing/customers': {
+      id: '/invoicing/customers'
+      path: '/invoicing/customers'
+      fullPath: '/invoicing/customers'
+      preLoaderRoute: typeof InvoicingCustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/invoicing/recurring': {
+      id: '/invoicing/recurring'
+      path: '/invoicing/recurring'
+      fullPath: '/invoicing/recurring'
+      preLoaderRoute: typeof InvoicingRecurringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments/': {
+      id: '/payments/'
+      path: '/payments'
+      fullPath: '/payments/'
+      preLoaderRoute: typeof PaymentsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments/ach-authorizations': {
+      id: '/payments/ach-authorizations'
+      path: '/payments/ach-authorizations'
+      fullPath: '/payments/ach-authorizations'
+      preLoaderRoute: typeof PaymentsAchAuthorizationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments/bill-pay': {
+      id: '/payments/bill-pay'
+      path: '/payments/bill-pay'
+      fullPath: '/payments/bill-pay'
+      preLoaderRoute: typeof PaymentsBillPayRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments/checkbooks': {
+      id: '/payments/checkbooks'
+      path: '/payments/checkbooks'
+      fullPath: '/payments/checkbooks'
+      preLoaderRoute: typeof PaymentsCheckbooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments/recipients': {
+      id: '/payments/recipients'
+      path: '/payments/recipients'
+      fullPath: '/payments/recipients'
+      preLoaderRoute: typeof PaymentsRecipientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments/taxes': {
+      id: '/payments/taxes'
+      path: '/payments/taxes'
+      fullPath: '/payments/taxes'
+      preLoaderRoute: typeof PaymentsTaxesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments/wire-drawdowns': {
+      id: '/payments/wire-drawdowns'
+      path: '/payments/wire-drawdowns'
+      fullPath: '/payments/wire-drawdowns'
+      preLoaderRoute: typeof PaymentsWireDrawdownsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team-spend/': {
+      id: '/team-spend/'
+      path: '/team-spend'
+      fullPath: '/team-spend/'
+      preLoaderRoute: typeof TeamSpendIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team-spend/budgets': {
+      id: '/team-spend/budgets'
+      path: '/team-spend/budgets'
+      fullPath: '/team-spend/budgets'
+      preLoaderRoute: typeof TeamSpendBudgetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team-spend/policies': {
+      id: '/team-spend/policies'
+      path: '/team-spend/policies'
+      fullPath: '/team-spend/policies'
+      preLoaderRoute: typeof TeamSpendPoliciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team-spend/reimbursements': {
+      id: '/team-spend/reimbursements'
+      path: '/team-spend/reimbursements'
+      fullPath: '/team-spend/reimbursements'
+      preLoaderRoute: typeof TeamSpendReimbursementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transactions/': {
+      id: '/transactions/'
+      path: '/transactions'
+      fullPath: '/transactions/'
+      preLoaderRoute: typeof TransactionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transactions/insights': {
+      id: '/transactions/insights'
+      path: '/transactions/insights'
+      fullPath: '/transactions/insights'
+      preLoaderRoute: typeof TransactionsInsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountingRoute: AccountingRoute,
+  BooksRoute: BooksRoute,
   CommandRoute: CommandRoute,
+  PayrollRoute: PayrollRoute,
+  SettingsRoute: SettingsRoute,
   TasksRoute: TasksRoute,
   AccountsFinancingRoute: AccountsFinancingRoute,
   AccountsTreasuryRoute: AccountsTreasuryRoute,
+  CardsCreditCardRoute: CardsCreditCardRoute,
+  InvoicingCatalogRoute: InvoicingCatalogRoute,
+  InvoicingCustomersRoute: InvoicingCustomersRoute,
+  InvoicingRecurringRoute: InvoicingRecurringRoute,
+  PaymentsAchAuthorizationsRoute: PaymentsAchAuthorizationsRoute,
+  PaymentsBillPayRoute: PaymentsBillPayRoute,
+  PaymentsCheckbooksRoute: PaymentsCheckbooksRoute,
+  PaymentsRecipientsRoute: PaymentsRecipientsRoute,
+  PaymentsTaxesRoute: PaymentsTaxesRoute,
+  PaymentsWireDrawdownsRoute: PaymentsWireDrawdownsRoute,
+  TeamSpendBudgetsRoute: TeamSpendBudgetsRoute,
+  TeamSpendPoliciesRoute: TeamSpendPoliciesRoute,
+  TeamSpendReimbursementsRoute: TeamSpendReimbursementsRoute,
+  TransactionsInsightsRoute: TransactionsInsightsRoute,
   AccountsIndexRoute: AccountsIndexRoute,
+  CardsIndexRoute: CardsIndexRoute,
+  InvoicingIndexRoute: InvoicingIndexRoute,
+  PaymentsIndexRoute: PaymentsIndexRoute,
+  TeamSpendIndexRoute: TeamSpendIndexRoute,
+  TransactionsIndexRoute: TransactionsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
