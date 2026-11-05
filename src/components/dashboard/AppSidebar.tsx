@@ -98,7 +98,7 @@ const bookmarks = [
   { label: "Insights", to: "/transactions/insights" },
 ];
 
-function NavItem({ item, path, onNavigate }: { item: Section; path: string; onNavigate?: () => void }) {
+function NavItem({ item, path, onNavigate }: { item: Section; path: string; onNavigate?: (() => void) | undefined }) {
   const { label, icon: Icon, to, count, badge, children } = item;
   const base = item.base ?? to;
   const inSection = to === "/" ? path === "/" : path === base || path.startsWith(`${base}/`);
@@ -146,7 +146,7 @@ function NavItem({ item, path, onNavigate }: { item: Section; path: string; onNa
   );
 }
 
-export function AppSidebar({ className, onNavigate }: { className?: string; onNavigate?: () => void }) {
+export function AppSidebar({ className, onNavigate }: { className?: string; onNavigate?: (() => void) | undefined }) {
   const path = useRouterState({ select: (s) => s.location.pathname }).replace(/\/$/, "") || "/";
   const product = path.startsWith("/payroll") ? "Payroll" : path.startsWith("/books") ? "Books" : "Banking";
 

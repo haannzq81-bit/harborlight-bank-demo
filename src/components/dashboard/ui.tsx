@@ -120,7 +120,7 @@ export function FilterMenu<T extends string>({
         <ChevronDown className="size-3.5 text-muted-foreground" />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="w-48">
-        <DropdownMenuRadioGroup value={value ?? options?.[0]} onValueChange={(v) => onChange?.(v as T)}>
+        <DropdownMenuRadioGroup value={value ?? options?.[0] ?? ""} onValueChange={(v) => onChange?.(v as T)}>
           {(options ?? (["Any"] as unknown as T[])).map((o) => (
             <DropdownMenuRadioItem key={o} value={o}>
               {o}
