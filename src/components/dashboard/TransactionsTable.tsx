@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowLeftRight } from "lucide-react";
 import { toast } from "sonner";
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { filterTxns, txnTabs, type TxnTab } from "./data";
 import { Money } from "./privacy";
@@ -13,9 +14,7 @@ export function TransactionsTable() {
     <section>
       <div className="mb-3 flex items-center justify-between">
         <h2 className="text-[19px] tracking-tight">Transactions</h2>
-        <button type="button" onClick={() => toast("All transactions")} className="text-[13.5px] font-medium text-primary hover:underline">
-          View all
-        </button>
+        <Link to="/transactions" className="text-[13.5px] font-medium text-primary hover:underline">View all</Link>
       </div>
 
       <div className="mb-3 flex gap-1 overflow-x-auto" role="tablist">

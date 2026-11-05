@@ -1,5 +1,6 @@
 import { EllipsisVertical, Plus } from "lucide-react";
 import { toast } from "sonner";
+import { useNavigate } from "@tanstack/react-router";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -47,6 +48,7 @@ export function ModuleMenu({ items }: { items: string[] }) {
 }
 
 export function AccountsCard() {
+  const navigate = useNavigate();
   return (
     <section className="panel flex flex-col px-6 pb-4 pt-5">
       <div className="flex items-center justify-between">
@@ -66,7 +68,7 @@ export function AccountsCard() {
           <li key={a.id}>
             <button
               type="button"
-              onClick={() => toast(`${a.name} ··${a.last4}`, { description: a.kind })}
+              onClick={() => navigate({ to: a.id === "credit" ? "/cards/credit-card" : a.id === "treasury" ? "/accounts/treasury" : "/accounts" })}
               className="-mx-2 flex w-[calc(100%+1rem)] items-center gap-3 rounded-md px-2 py-2 text-left transition-colors hover:bg-muted"
             >
               <AccountGlyph />
@@ -78,7 +80,7 @@ export function AccountsCard() {
         <li>
           <button
             type="button"
-            onClick={() => toast("All accounts")}
+            onClick={() => navigate({ to: "/accounts" })}
             className="-mx-2 flex w-[calc(100%+1rem)] items-center gap-3 rounded-md px-2 py-2 text-left transition-colors hover:bg-muted"
           >
             <span className="inline-flex size-7 items-center justify-center rounded-full bg-secondary text-[10.5px] text-muted-foreground">
