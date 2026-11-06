@@ -1,8 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { PlaceholderPage } from "@/components/dashboard/PlaceholderPage";
-import { pageHead } from "@/components/dashboard/ui";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/payments/")({
-  head: pageHead("Payments", "Payments overview."),
-  component: () => <PlaceholderPage title="Payments" />,
+  beforeLoad: () => {
+    throw redirect({ to: "/payments/recipients", replace: true });
+  },
 });
