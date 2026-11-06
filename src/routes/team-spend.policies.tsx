@@ -44,7 +44,7 @@ function PoliciesPage() {
               <td className={td + " text-right"} onClick={(e) => e.stopPropagation()}>
                 <Switch
                   aria-label={`Toggle ${p.name}`}
-                  checked={active[i]}
+                  checked={active[i] ?? false}
                   onCheckedChange={(v) => setActive((a) => a.map((x, j) => (j === i ? v : x)))}
                 />
               </td>
